@@ -5,7 +5,7 @@ A script that builds on top of my existing Fortigate script on my repo that auto
 Made with the intent for handling permissions of what certain Adminstatator groups can See/Do on the Firewall
 I created this tool because manually updating the same profile on 70+ firewalls was time-consuming and error-prone — especially since the profile name can vary across devices. 
 
-For ex/ within the Fortigates GUI sys settings  (`SupportAccess`, `Support Access`, `Support_Access`, etc.).
+**For ex/ within the Fortigates GUI sys settings  (`SupportAccess`, `Support Access`, `Support_Access`, etc.).**
 
 ![image gui](https://github.com/iburr/Fortigate-Access-Profile-tool/blob/e670cfb1faa31f41d3811787cfcbac17e5b35e0e/Screenshots/Screenshot%202026-04-17%20122921.png)
 
