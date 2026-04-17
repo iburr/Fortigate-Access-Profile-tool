@@ -2,18 +2,22 @@
 
 
 A script that builds on top of my existing Fortigate script on my repo that automates updating the administrative access profile (`accprofile`) across multiple FortiGate firewalls.
-Made with the intent for handling permissions of what certain Adminstatator groups can See/Do on the Firewall
-I created this tool because manually updating the same profile on 70+ firewalls was time-consuming and error-prone — especially since the profile name can vary across devices. 
+Made with the intent for handling permissions of what certain Administrator groups can See/Do on the Firewall they are managing.
+I created this tool because manually updating the same profile on 100+ firewalls was time-consuming and error-prone — especially since the profile name can vary across devices.
+
+Script has been tested and can manage over 120+ concurrent sessions of working through multiple FortiGate Firewalls.
+*- Model Series Tested: D-Series, E-Series, F-Series, G-Series*
+*- Firmwares tested on: 5.6.x, 6.1.x, 7.2.x, 7.4.x, 7.6.x*
 
 **For ex/ within the Fortigates GUI sys settings  (`SupportAccess`, `Support Access`, `Support_Access`, etc.).**
 
 ![image gui](https://github.com/iburr/Fortigate-Access-Profile-tool/blob/e670cfb1faa31f41d3811787cfcbac17e5b35e0e/Screenshots/Screenshot%202026-04-17%20122921.png)
 
-**##Output of script when run successfully on an address:** 
+###Output of script when run successfully on an address:
 ![image OutputSuccess](https://github.com/iburr/Fortigate-Access-Profile-tool/blob/078e8101ac7cefe1554489ea259cdfe95b8c09dc/Screenshots/Screenshot%202026-04-17%20123436.png)
 
 
-**##Output of script when run unsuccessfully on an address:**
+###Output of script when run unsuccessfully on an address:
 ![image OutputFail](https://github.com/iburr/Fortigate-Access-Profile-tool/blob/078e8101ac7cefe1554489ea259cdfe95b8c09dc/Screenshots/Screenshot%202026-04-17%20123524.png)
 
 ### Features
