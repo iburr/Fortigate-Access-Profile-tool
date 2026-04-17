@@ -6,8 +6,8 @@ Made with the intent for handling permissions of what certain Administrator grou
 I created this tool because manually updating the same profile on 100+ firewalls was time-consuming and error-prone — especially since the profile name can vary across devices.
 
 Script has been tested and can manage over 120+ concurrent sessions of working through multiple FortiGate Firewalls.
-*- Model Series Tested: D-Series, E-Series, F-Series, G-Series*
-*- Firmwares tested on: 5.6.x, 6.1.x, 7.2.x, 7.4.x, 7.6.x*
+   *- Model Series Tested: D-Series, E-Series, F-Series, G-Series*
+   *- Firmwares tested on: 5.6.x, 6.1.x, 7.2.x, 7.4.x, 7.6.x*
 
 **For ex/ within the Fortigates GUI sys settings  (`SupportAccess`, `Support Access`, `Support_Access`, etc.).**
 
