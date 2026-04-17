@@ -7,7 +7,7 @@ I created this tool because manually updating the same profile on 70+ firewalls 
 
 For ex/ within the Fortigates GUI sys settings  (`SupportAccess`, `Support Access`, `Support_Access`, etc.).
 
-![image alt]{https://github.com/iburr/Fortigate-Access-Profile-tool/blob/e670cfb1faa31f41d3811787cfcbac17e5b35e0e/Screenshots/Screenshot%202026-04-17%20122921.png}
+![image gui](https://github.com/iburr/Fortigate-Access-Profile-tool/blob/e670cfb1faa31f41d3811787cfcbac17e5b35e0e/Screenshots/Screenshot%202026-04-17%20122921.png)
 
 ### Features
 - Automatically detects the accprofile name on each firewall
