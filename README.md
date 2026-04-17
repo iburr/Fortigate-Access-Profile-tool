@@ -3,7 +3,6 @@
 
 A script that builds on top of my existing Fortigate script on my repo that automates updating the administrative access profile (`accprofile`) across multiple FortiGate firewalls.
 Made with the intent for handling permissions of what certain Administrator groups can See/Do on the Firewall they are managing.
-I created this tool because manually updating the same profile on 100+ firewalls was time-consuming and error-prone — especially since the profile name can vary across devices.
 
 Script has been tested and can manage over 120+ concurrent sessions of working through multiple FortiGate Firewalls.
 
