@@ -9,6 +9,10 @@ I created this tool because manually updating the same profile on 70+ firewalls 
 
 ![image gui](https://github.com/iburr/Fortigate-Access-Profile-tool/blob/e670cfb1faa31f41d3811787cfcbac17e5b35e0e/Screenshots/Screenshot%202026-04-17%20122921.png)
 
+**Output of script when run successfully on an address:** 
+![image OutputSuccess](https://github.com/iburr/Fortigate-Access-Profile-tool/blob/078e8101ac7cefe1554489ea259cdfe95b8c09dc/Screenshots/Screenshot%202026-04-17%20123436.png)
+
+
 ### Features
 - Automatically detects the accprofile name on each firewall
 - Handles multiple naming variations without manual intervention
