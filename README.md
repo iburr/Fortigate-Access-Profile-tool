@@ -1,4 +1,4 @@
-# Fortigat-System Access Tool
+# FortiGate-System Access Tool
 
 
 A script that builds on top of my existing Fortigate script on my repo that automates updating the administrative access profile (`accprofile`) across multiple FortiGate firewalls.
