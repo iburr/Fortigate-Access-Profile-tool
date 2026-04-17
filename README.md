@@ -37,6 +37,7 @@ I created this tool because manually updating the same profile on 70+ firewalls 
 
 1. Clone or download the repository
 2. Create a virtual environment (recommended):
+   
    *Bash:* 
    ```bash
    python -m venv venv
