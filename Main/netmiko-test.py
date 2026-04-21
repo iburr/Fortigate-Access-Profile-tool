@@ -21,7 +21,7 @@ Devices: List[Dict] = [
 
 
 
-def accprofile_name(fw, Fortigate) -> str:
+def accprofile_name(fw, Fortigate):
     
     # Plug in possible profile names
     possible_name = [
@@ -31,21 +31,44 @@ def accprofile_name(fw, Fortigate) -> str:
         "Support Access",
     ]
 
-    print("Checking profile...", end=" ")
-    for name in possible_name: # Iterates through the List depening what profile it is looking for
+    # List for duplicate admin profiles 
+    duplicate_counter = []
+
+
+    print("Checking profile...", end=" \n")
+    for name in possible_name: # Iterates through the possible_name List depening what profile it is looking for
         try: 
             output = fw.send_command(f'show system accprofile "{name}"', read_timeout=30)
+
             if "edit" in output.lower():
-                print(f"Found {name}\n")
-                return name
+                print(f"\nFound {name} applying chages to {name}...")
+                
+                config_commands = [
+                    "config system accprofile\n",
+                    f'edit "{name}"\n',
+                    "set sysgrp read-write\n",
+                    "next\n",
+                    "end\n",
+                ]
+                    
+                fw.send_config_set(config_commands, exit_config_mode=True, read_timeout=100, delay_factor=2)
+                duplicate_counter.append(name)
         except:
             pass
-    print(f"\nNothing found check the firewall manually on host: {Fortigate['host']}\n")
+
+    # Displays the profiles that were edited
+    if duplicate_counter:
+        print(Fore.CYAN + f"\nUpdated {len(duplicate_counter)} profiles: {', '.join(duplicate_counter)} on {Fortigate['host']}")
+        return duplicate_counter
+    else:
+        print(Fore.YELLOW + f"No Matching profile found on: {Fortigate['host']}")
+        return []
+
 
 
 def main():
     for Fortigate in Devices:
-        print(f"\n Connecting to {Fortigate['username']} ({Fortigate['host']}) ...")
+        print(f"\nConnecting to {Fortigate['username']} ({Fortigate['host']}) ...")
 
         # Global config layout
         device = {
@@ -61,29 +84,18 @@ def main():
                 print(Fore.GREEN + "\n +++++ Connected ++++++ \n")
 
                 #####################################
-                profile_name = accprofile_name(fw, Fortigate) # Calls accprofile func into main
-                config_commands = [
-                    "config system accprofile\n",
-                    f'edit "{profile_name}"\n',
-                    "set sysgrp read-write\n",
-                    "next\n",
-                    "end\n",
-                ]
-                print(f"Applying for profile {profile_name}")
+                updated_name = accprofile_name(fw, Fortigate) # Calls accprofile func into main
+                if updated_name:
+                    print(Fore.GREEN + f"Changes are finished on {Fortigate['host']}")
+                else:
+                    pass
                 #####################################
 
-                for cmd in config_commands:
-                    output = fw.send_config_set(cmd, exit_config_mode=True, read_timeout=100, delay_factor=2)
-                    # timeout is set to 100 cause connection is being established over WAN, slower compared to LAN
-                    print(output)
-
-                print(Fore.GREEN + f" Changes are finished on {Fortigate['host']}\n")
         except Exception as e:
-            # print(f"  Failed{e}\n")
-            print(Fore.RED + f" Failed on {Fortigate['host']}: {e}\n")
+            print(Fore.RED + f"\nFailed on {Fortigate['host']}: {e}\n")
         t.sleep(0.5)
 
-    print("All connections have been established")
+    print("\nAll connections have been established")
 
 
 # Calls Logic first.. Cleaner
