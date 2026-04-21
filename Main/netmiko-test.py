@@ -13,7 +13,9 @@ init(autoreset=True)
 # Can test this in local enviorments of course.
 
 Devices: List[Dict] = [
-    # {"host": "", "username": "admin", "password": ""},
+    {"host": "192.168.25.1", "username": "admin", "password": "admin"},
+    # {"host": "192.168.30.1", "username": "admin", "password": "admin"},
+    # {"host": "192.168.31.1", "username": "admin", "password": ""},
     # {"host": "", "username": "admin", "password": ""},
     # {"host": "__Public_IPAddr__", "username": "admin", "password": "__PW_Placeholder"},
     # {"host": "__Public_IPAddr__", "username": "admin", "password": "__PW_Placeholder"},
@@ -51,12 +53,13 @@ def accprofile_name(fw, Fortigate):
                     "end\n",
                 ]
                     
-                fw.send_config_set(config_commands, exit_config_mode=True, read_timeout=100, delay_factor=2)
+                running_config = fw.send_config_set(config_commands, exit_config_mode=True, read_timeout=100, delay_factor=2)
                 duplicate_counter.append(name)
+                print(running_config)
         except:
             pass
 
-    # Displays the profiles that were edited
+
     if duplicate_counter:
         print(Fore.CYAN + f"\nUpdated {len(duplicate_counter)} profiles: {', '.join(duplicate_counter)} on {Fortigate['host']}")
         return duplicate_counter
