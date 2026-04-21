@@ -101,6 +101,6 @@ def main():
     print("\nAll connections have been established")
 
 
-# Calls Logic first.. Cleaner
+# Main Logic first.. Cleaner
 if __name__ == "__main__":
     main()
