@@ -18,6 +18,9 @@ Script has been tested and can manage over 120+ concurrent sessions of working t
 
 ![image OutputSuccess](https://github.com/iburr/Fortigate-Access-Profile-tool/blob/078e8101ac7cefe1554489ea259cdfe95b8c09dc/Screenshots/Screenshot%202026-04-17%20123436.png)
 
+**Output of script when duplicate admin profiles are found:**
+
+![image OutputDuplicate](https://github.com/iburr/Fortigate-Access-Profile-tool/blob/d99a71578dcd6931634f864e256563d862066906/Screenshots/Updated.output.png)
 
 **Output of script when run unsuccessfully on an address:**
 
